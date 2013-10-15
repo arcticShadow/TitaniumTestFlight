@@ -1,0 +1,32 @@
+// Add this to something somewhere, in alloy I have it in alloy.js. Make sure to change the app id
+
+
+// Wrapper for tesflight
+Alloy.Globals.testflight = {
+	testflight: null,
+	init: function(){
+		this.testflight = require('com.animecyc.testflight');
+		this.testflight.takeOff('', {}); //App ID, param 1
+		//this.testflight.setDebugging(true);
+		//this.testflight.checkpoint('App Started');
+	},
+	checkpoint: function(data){
+		if(this.testflight){
+			this.testflight.checkpoint(data);
+		} 
+	},
+	feedback:function(){
+		if(this.testflight){
+			this.testflight.feedback();
+		}
+	},
+	log:function(data){
+		if(this.testflight){
+			this.testflight.log(data);
+		}
+	}
+};
+
+if (!ENV_PRODUCTION && OS_IOS) {
+  Alloy.Globals.testflight.init();
+} 
