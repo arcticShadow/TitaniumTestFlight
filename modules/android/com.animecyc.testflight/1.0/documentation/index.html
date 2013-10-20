@@ -1,0 +1,78 @@
+<h1>TitaniumTestFight</h1>
+<p>An implementation of the TestFlight SDK for Titanium.</p>
+<h2>Usage</h2>
+<p>```javascript
+var TestFlight = require('com.animecyc.testflight'),
+    mainWindow = Ti.UI.createWindow({
+        backgroundColor : 'white'
+    });</p>
+<p>TestFlight.takeOff('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');</p>
+<p>mainWindow.open();
+```</p>
+<h2>Module Reference</h2>
+<h3>TestFlight.takeOff(accountToken, options);</h3>
+<p>Starts the TestFlight service</p>
+<ul>
+<li>accountToken (String):<ul>
+<li>The applications TestFlight application token</li>
+</ul>
+</li>
+<li>options (Object):<ul>
+<li>An object containing the following:<ul>
+<li>options (Object):<ul>
+<li>inAppUpdates (Boolean)</li>
+<li>flushInterval (Integer)</li>
+<li>logonCheckpoint (Boolean)</li>
+<li>logToStderr (Boolean)</li>
+<li>reportCrashes (Boolean)</li>
+<li>logOnlyOnCrash (Boolean)</li>
+<li>sessionTimeout (Integer)</li>
+</ul>
+</li>
+<li>environment (Object)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Android only supports the <code>sessionTimeout</code> option, everything else hasn't been implemented</p>
+</blockquote>
+<h3>TestFlight.checkpoint(checkpointName);</h3>
+<p>Sends a checkpoint</p>
+<ul>
+<li>checkpointName (String):<ul>
+<li>The name of the checkpoint</li>
+</ul>
+</li>
+</ul>
+<h3>TestFlight.feedback(feedback);</h3>
+<p>Sends feeback information</p>
+<blockquote>
+<p>Android does not support this method as of yet; It is safe to call, it just won't do anything.</p>
+</blockquote>
+<ul>
+<li>feedback (String):<ul>
+<li>A feedback message</li>
+</ul>
+</li>
+</ul>
+<h3>TestFlight.log(message);</h3>
+<p>Sends log messages to TestFlight</p>
+<ul>
+<li>message (String):<ul>
+<li>A general log message</li>
+</ul>
+</li>
+</ul>
+<h3>TestFlight.getDebugging();</h3>
+<p>Returns the current debug status flag</p>
+<p><em>This method takes no paramters.</em></p>
+<h3>TestFlight.setDebugging(debug);</h3>
+<p>Sets the debug status flag</p>
+<ul>
+<li>debug (Boolean):<ul>
+<li>Debugging status flag</li>
+</ul>
+</li>
+</ul>
